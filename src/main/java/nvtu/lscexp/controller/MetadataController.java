@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +20,7 @@ public class MetadataController {
     @Autowired
     private MetadataService metadataService; 
     
+    @CrossOrigin
     @GetMapping("/date-list")
     public ResponseEntity< List<String> > getDateList() {
         List<String> dateList = this.metadataService.getDateList();
