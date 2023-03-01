@@ -27,9 +27,19 @@ public class MetadataServiceImpl implements MetadataService {
     private MongoTemplate mongoTemplate;
 
     @Override
-    public List<Metadata> getMetadataByDate(String date) {
+    public List<String> getItemByDate(String date) {
         List<Metadata> metadataList = this.metadataRepository.findByDate(date);
-        return metadataList;
+        List<String> idList = new ArrayList<String>();
+        for (Metadata metadata : metadataList) {
+            idList.add(metadata.getId());
+        }
+        return idList;
+    }
+
+    @Override
+    public Metadata getMetadataById(String id) {
+        Metadata metadata = this.metadataRepository.findById(id).get();
+        return metadata;
     }
 
     @Override

@@ -5,6 +5,7 @@ import java.util.List;
 import nvtu.lscexp.model.Metadata;
 
 public interface MetadataService {
-    List<Metadata> getMetadataByDate(String date);
+    List<String> getItemByDate(String date);
+    Metadata getMetadataById(String id);
     List<String> getDateList();
 }
