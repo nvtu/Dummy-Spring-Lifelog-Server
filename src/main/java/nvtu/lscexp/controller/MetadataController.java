@@ -14,13 +14,13 @@ import nvtu.lscexp.model.Metadata;
 import nvtu.lscexp.service.MetadataService;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/metadata")
 public class MetadataController {
 
     @Autowired
     private MetadataService metadataService; 
     
-    @CrossOrigin
     @GetMapping("/date-list")
     public ResponseEntity< List<String> > getDateList() {
         List<String> dateList = this.metadataService.getDateList();
